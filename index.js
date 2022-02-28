@@ -3,16 +3,16 @@ const path = require("path");
 const logger = require("morgan");
 // const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// const hbs = require("handlebars");
+const { engine } = require("express-handlebars");
 
-const indexRouter = require("./routes/index.js");
+const indexRouter = require("./routes/home.js");
 
 const app = express();
 
 // Set application properties
-// app.engine("hbs", )
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
 
 // Mount middleware
 app.use(logger("dev"));

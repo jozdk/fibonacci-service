@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-    res.render("index", { title: "Fibonacci Calculator"} );
+    res.render("home", { title: "Fibonacci Calculator"} );
 });
 
 router.get("/error", (req, res, next) => {
