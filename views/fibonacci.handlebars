@@ -1,0 +1,11 @@
+<h1>{{ title }}</h1>
+{{> navbar }}
+{{#if fiboval}}
+    <p>Fibanocci for {{ fibonum }} is {{ fiboval }}</p>
+    <hr>
+{{/if}}
+<p>Enter a number to see its Fibanocci number</p>
+<form action="/fibonacci" method="get" name="fibonacci">
+    <input type="number" name="fibonum" min="0">
+    <input type="submit" value="Submit">
+</form>

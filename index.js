@@ -4,22 +4,17 @@ const myLogger = require("./middleware/logger.js");
 // const logger = require("morgan");
 // const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const { create } = require("express-handlebars");
+const { engine } = require("express-handlebars");
 
 const indexRouter = require("./routes/home.js");
+const fibonacciRouter = require("./routes/fibonacci.js");
 
 const app = express();
-const hbs = create();
 
 // Set view engine
-app.engine("handlebars", hbs.engine);
+app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
-hbs.getPartials().then((partials) => {
-    console.log(partials);
-}).catch((err) => {
-    console.error(err);
-})
 
 // Mount middleware
 app.use(myLogger);
@@ -30,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-// app.use("/fibonacci", fibonacciRouter);
+app.use("/fibonacci", fibonacciRouter);
 
 // Custom middleware: Catch 404 and forward it to error handler
 // Needs to be mounted last in the middleware pipeline: if the request passes through until here -> handle as error 404
