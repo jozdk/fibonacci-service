@@ -1,11 +1,16 @@
 <h1>{{ title }}</h1>
 {{> navbar }}
-{{#if fiboval}}
+{{#if fiboval includeZero=true}}
     <p>Fibanocci for {{ fibonum }} is {{ fiboval }}</p>
     <hr>
 {{/if}}
 <p>Enter a number to see its Fibanocci number</p>
+{{#if inputError}}
+    <p class="input-help">
+        Type in a number that is equal or greater than 0
+    </p>
+{{/if}}
 <form action="/fibonacci" method="get" name="fibonacci">
-    <input type="number" name="fibonum" min="0">
+    <input type="number" name="fibonum">
     <input type="submit" value="Submit">
 </form>
