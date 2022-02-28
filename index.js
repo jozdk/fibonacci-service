@@ -4,16 +4,22 @@ const myLogger = require("./middleware/logger.js");
 // const logger = require("morgan");
 // const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const { engine } = require("express-handlebars");
+const { create } = require("express-handlebars");
 
 const indexRouter = require("./routes/home.js");
 
 const app = express();
+const hbs = create();
 
-// Set application properties
-app.engine("handlebars", engine());
+// Set view engine
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
+hbs.getPartials().then((partials) => {
+    console.log(partials);
+}).catch((err) => {
+    console.error(err);
+})
 
 // Mount middleware
 app.use(myLogger);
