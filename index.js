@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
-const logger = require("morgan");
+const myLogger = require("./middleware/logger.js");
+// const logger = require("morgan");
 // const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { engine } = require("express-handlebars");
@@ -15,7 +16,8 @@ app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
 // Mount middleware
-app.use(logger("dev"));
+app.use(myLogger);
+// app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -25,6 +27,7 @@ app.use("/", indexRouter);
 // app.use("/fibonacci", fibonacciRouter);
 
 // Custom middleware: Catch 404 and forward it to error handler
+// Needs to be mounted last in the middleware pipeline: if the request passes through until here -> handle as error 404
 app.use((req, res, next) => {
     const err = new Error("Not found");
     err.status = 404;
