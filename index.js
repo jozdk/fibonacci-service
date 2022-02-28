@@ -1,19 +1,21 @@
 const express = require("express");
-const morgan = require("morgan");
+const path = require("path");
+const logger = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const path = require("path");
+// const hbs = require("handlebars");
 
-const indexRouter = require("./routes/home.js");
+const indexRouter = require("./routes/index.js");
 
 const app = express();
 
 // Set application properties
+// app.engine("hbs", )
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
 // Mount middleware
-app.use(morgan("dev"));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -21,6 +23,23 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 // app.use("/fibonacci", fibonacciRouter);
+
+// Custom middleware: Catch 404 and forward it to error handler
+app.use((req, res, next) => {
+    const err = new Error("Not found");
+    err.status = 404;
+    next(err);
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    res.status(err.status || 500);
+    res.render("error");
+});
 
 const PORT = process.env.PORT || 3000;
 
