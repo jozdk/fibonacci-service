@@ -7,8 +7,8 @@ router.get("/", (req, res, next) => {
     // const { fibonum } = req.query.fibonum; // Like this?
     // const fibonum = req.query.fibonum;
     // const fibilibus = 2;
-    // console.log("whole object: ", fibonum);
-    // console.log("destructured value: ", {fibonum, fibilibus});
+    // console.log("fibonum: ", fibonum);
+    // console.log("{fibonum, fibilibus}: ", {fibonum, fibilibus});
     if (req.query.fibonum) {
         if (req.query.fibonum >= 0) {
 
