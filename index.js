@@ -7,7 +7,9 @@ const cookieParser = require("cookie-parser");
 const { engine } = require("express-handlebars");
 
 const indexRouter = require("./routes/home.js");
-const fibonacciRouter = require("./routes/fibonacci.js");
+// const fibonacciRouter = require("./routes/fibonacci.js");
+const fibonacciRouter = require("./routes/fibonacci-async.js");
+
 
 const app = express();
 
