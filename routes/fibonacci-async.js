@@ -4,11 +4,11 @@ const math = require("../math");
 
 router.get("/", (req, res, next) => {
     const title = "Calculate Fibonacci numbers";
+    const { fibonum } = req.query;
+    console.log(fibonum);
     
-    if (req.query.fibonum) {
-        const { fibonum } = req.query.fibonum;
-        
-        math.fibonacci(fibonum, (err, fiboval) => {
+    if (fibonum) {
+        math.fibonacciAsync(fibonum, (err, fiboval) => {
             if (err) next(err);
             else {
                 res.render("fibonacci", {

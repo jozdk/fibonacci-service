@@ -4,7 +4,9 @@ const math = require("../math.js");
 
 router.get("/", (req, res, next) => {
     const title = "Calculate Fibonacci numbers"
-    // const { fibonum } = req.query.fibonum; // Like this?
+    const { fibonum } = req.query; // Like this?
+    console.log(fibonum);
+    console.log(req.query.fibonum);
     // const fibonum = req.query.fibonum;
     // const fibilibus = 2;
     // console.log("fibonum: ", fibonum);
