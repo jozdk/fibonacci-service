@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "DEBUG=serve-fibonacci:* node index",
     "dev": "nodemon index",
-    "server": "SERVERPORT=3002 node ./fiboserver",
-    "client": "SERVERPORT=3002 node ./fiboclient"
+    "startrest": "DEBUG=serve-fibonacci:* SERVERPORT=3002 node fiboserver --max-old-space-size=3000",
+    "server": "DEBUG=serve-fibonacci:* SERVERPORT=3002 node index",
+    "client": "DEBUG=serve-fibonacci:* SERVERPORT=3002 node fiboclient"
   },
   "author": "",
   "license": "ISC",

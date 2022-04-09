@@ -8,7 +8,8 @@ const { engine } = require("express-handlebars");
 
 const indexRouter = require("./routes/home.js");
 // const fibonacciRouter = require("./routes/fibonacci.js");
-const fibonacciRouter = require("./routes/fibonacci-async.js");
+// const fibonacciRouter = require("./routes/fibonacci-async.js");
+const fibonacciRouter = require("./routes/fibonacci-rest.js");
 
 
 const app = express();
