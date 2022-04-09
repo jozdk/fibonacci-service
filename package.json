@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "server": "process.env[SERVERPORT] = 3002 node ./fiboserver"
+    "server": "SERVERPORT=3002 node ./fiboserver",
+    "client": "SERVERPORT=3002 node ./fiboclient"
   },
   "author": "",
   "license": "ISC",
