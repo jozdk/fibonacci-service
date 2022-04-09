@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "server": "process.env[SERVERPORT] = 3002 node ./fiboserver"
   },
   "author": "",
   "license": "ISC",
