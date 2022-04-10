@@ -4,22 +4,14 @@ const math = require("../math.js");
 
 router.get("/", (req, res, next) => {
     const title = "Calculate Fibonacci numbers"
-    const { fibonum } = req.query; // Like this?
-    console.log(fibonum);
-    console.log(req.query.fibonum);
-    // const fibonum = req.query.fibonum;
-    // const fibilibus = 2;
-    // console.log("fibonum: ", fibonum);
-    // console.log("{fibonum, fibilibus}: ", {fibonum, fibilibus});
-    if (req.query.fibonum) {
-        if (req.query.fibonum >= 0) {
-
+    const { fibonum } = req.query;
+    if (fibonum) {
+        if (fibonum >= 0) {
             res.render("fibonacci", {
                 title: title,
-                fibonum: req.query.fibonum, // is this dangerous?
-                fiboval: math.fibonacci(req.query.fibonum)
+                fibonum: fibonum,
+                fiboval: math.fibonacci(fibonum)
             });
-
         } else {
             res.render("fibonacci", {
                 title: title,
