@@ -6,7 +6,7 @@
   "scripts": {
     "start:webserver": "nodemon webserver.js",
     "start:fiboserver": "nodemon fiboserver.js --max-old-space-size=3000",
-    "fiboclient": "node fiboclient"
+    "fiboclient": "node fiboclient.js"
   },
   "author": "",
   "license": "ISC",

@@ -11,7 +11,9 @@ const options = {
     method: "GET"
 };
 
-if (parsedUrl.search) options.path += `?${parsedUrl.search}`;
+if (parsedUrl.search) {
+    options.path += `?${parsedUrl.search}`;
+}
 
 const req = http.request(options);
 

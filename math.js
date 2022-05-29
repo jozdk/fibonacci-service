@@ -1,26 +1,24 @@
-// exports.fibonacci = (n) => {
-//     n = parseInt(n);
-//     if (n === 0) return 0;
-//     else if (n === 1 || n === 2) return 1;
-//     else return exports.fibonacci(n - 1) + exports.fibonacci(n - 2);
-// };
-// Too expensive!
+// Inefficient algorithm:
+exports.fibonacci = (n) => {
+    n = parseInt(n);
+    if (n === 0) return 0;
+    else if (n === 1 || n === 2) return 1;
+    else return exports.fibonacci(n - 1) + exports.fibonacci(n - 2);
+};
 
 // More efficient:
-
-// exports.fibonacciLoop = (n) => {
-//     const fibos = [];
-//     fibos[0] = 0;
-//     fibos[1] = 1;
-//     fibos[2] = 1;
-//     for (let i = 3; i <= n; i++) {
-//         fibos[i] = fibos[i-2] + fibos[i-1];
-//     }
-//     return fibos[n];
-// }
+exports.fibonacciLoop = (n) => {
+    const fibos = [];
+    fibos[0] = 0;
+    fibos[1] = 1;
+    fibos[2] = 1;
+    for (let i = 3; i <= n; i++) {
+        fibos[i] = fibos[i-2] + fibos[i-1];
+    }
+    return fibos[n];
+}
 
 // Asynchronous:
-
 exports.fibonacciAsync = (n, done) => {
     if (n === 0) done(undefined, 0);
     else if (n === 1 || n === 2) done(undefined, 1);

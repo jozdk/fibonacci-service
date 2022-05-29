@@ -5,11 +5,11 @@ const myLogger = require("./middleware/logger.js");
 const cookieParser = require("cookie-parser");
 const { engine } = require("express-handlebars");
 
+// Routers
 const indexRouter = require("./routes/home.js");
 // const fibonacciRouter = require("./routes/fibonacci.js");
 // const fibonacciRouter = require("./routes/fibonacci-async.js");
 const fibonacciRouter = require("./routes/fibonacci-rest.js");
-
 
 const app = express();
 
