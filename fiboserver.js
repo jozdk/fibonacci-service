@@ -18,4 +18,4 @@ app.get("/fibonacci/:n", (req, res, next) => {
     });
 });
 
-app.listen(process.env.SERVERPORT);
+app.listen(3002);

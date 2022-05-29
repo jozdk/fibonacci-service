@@ -9,7 +9,7 @@ const http = require("http");
     console.log(`${new Date().toISOString()} requesting ${path}`);
     let req = http.request({
         host: "localhost",
-        port: process.env.SERVERPORT,
+        port: 3002,
         path,
         method: "GET"
     }, (res) => {

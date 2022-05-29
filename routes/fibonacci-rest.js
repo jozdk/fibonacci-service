@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
         if (fibonum >= 0) {
             const httpreq = http.request({
                 host: "localhost",
-                port: process.env.SERVERPORT,
+                port: 3002,
                 path: `/fibonacci/${Math.floor(fibonum)}`,
                 method: "GET"
             });
