@@ -2,13 +2,11 @@
   "name": "fibonacci-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webserver.js",
   "scripts": {
-    "start": "DEBUG=fibonacci-service:* node index",
-    "dev": "nodemon index",
-    "startrest": "DEBUG=fibonacci-service:* SERVERPORT=3002 node fiboserver --max-old-space-size=3000",
-    "server": "DEBUG=fibonacci-service:* SERVERPORT=3002 node index",
-    "client": "DEBUG=fibonacci-service:* SERVERPORT=3002 node fiboclient"
+    "start:webserver": "nodemon webserver.js",
+    "start:fiboserver": "nodemon fiboserver.js --max-old-space-size=3000",
+    "fiboclient": "node fiboclient"
   },
   "author": "",
   "license": "ISC",
